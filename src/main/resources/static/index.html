@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="container">
+    <header>
+        <p class="eyebrow">BOOKING SYSTEM</p>
+        <h1>Boka en tid</h1>
+        <p class="subtitle">En enkel bokningsapp byggd med Java, Spring Boot och MySQL.</p>
+    </header>
+
+    <section class="card">
+        <h2>Ny bokning</h2>
+        <form id="bookingForm">
+            <label>Namn
+                <input id="customerName" type="text" placeholder="Ditt namn" required>
+            </label>
+            <label>E-post
+                <input id="customerEmail" type="email" placeholder="namn@example.com" required>
+            </label>
+            <label>Tjänst
+                <select id="serviceName" required>
+                    <option value="">Välj tjänst</option>
+                    <option>Klippning</option>
+                    <option>Skäggtrimning</option>
+                    <option>Klippning + skägg</option>
+                </select>
+            </label>
+            <label>Tid
+                <input id="appointmentTime" type="datetime-local" required>
+            </label>
+            <button type="submit">Boka tid</button>
+            <p id="message" class="message" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <section class="bookings-section">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">ÖVERSIKT</p>
+                <h2>Mina bokningar</h2>
+            </div>
+            <button id="refreshButton" class="secondary" type="button">Uppdatera</button>
+        </div>
+        <div id="bookings" class="booking-grid"></div>
+    </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
