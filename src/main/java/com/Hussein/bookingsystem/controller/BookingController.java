@@ -2,6 +2,7 @@ package com.Hussein.bookingsystem.controller;
 
 import com.Hussein.bookingsystem.model.Booking;
 import com.Hussein.bookingsystem.service.BookingService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,12 +30,12 @@ public class BookingController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Booking createBooking(@RequestBody Booking booking) {
+    public Booking createBooking(@Valid @RequestBody Booking booking) {
         return bookingService.createBooking(booking);
     }
 
     @PutMapping("/{id}")
-    public Booking updateBooking(@PathVariable Long id, @RequestBody Booking booking) {
+    public Booking updateBooking(@PathVariable Long id, @Valid @RequestBody Booking booking) {
         return bookingService.updateBooking(id, booking);
     }
 
