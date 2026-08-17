@@ -6,6 +6,10 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
@@ -16,9 +20,18 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Customer name is required")
     private String customerName;
+
+    @NotBlank(message = "Customer email is required")
+    @Email(message = "Customer email must be valid")
     private String customerEmail;
+
+    @NotBlank(message = "Service name is required")
     private String serviceName;
+
+    @NotNull(message = "Appointment time is required")
+    @Future(message = "Appointment time must be in the future")
     private LocalDateTime appointmentTime;
 
     @Enumerated(EnumType.STRING)
